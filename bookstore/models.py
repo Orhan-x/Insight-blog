@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Usr(models.Model):
+class Author(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
     passwd = models.CharField(min_length = 10)
