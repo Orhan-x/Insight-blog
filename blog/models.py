@@ -12,9 +12,12 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         
         if self.pk : 
-            old_instance = Post.objects.get(pk = self.pk)
-            if old_instance.title != self.title or old_instance.content != self.content:
-                self.is_updated = True
+            try:
+                old_instance = Post.objects.get(pk = self.pk)
+                if old_instance.title != self.title or old_instance.content != self.content:
+                    self.is_updated = True
+            except Post.DoesNotExist:
+                pass
         super().save(self, *args, **kwargs)
         
             
