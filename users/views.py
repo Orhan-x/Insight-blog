@@ -6,5 +6,4 @@ def registration(request):
     if request.method == "GET":
         form = RegistrationForm()
         context["form"] = form
-        pass
     return render(request, 'register.html', context)
