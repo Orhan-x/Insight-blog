@@ -9,5 +9,4 @@ class RegistrationForm(ModelForm):
                         "last_name",
                         "email",
                         "password",
-                        "date_joined"
                 ]
