@@ -3,13 +3,30 @@
 {% block title %} Create a Post{% endblock title %}
 
 {% block page_content %}
-<form method="POST">
-    {% csrf_token %}
-    {% for field in form %}
-        {{field}}
-    {% endfor%}
-    <input type="submit" value="Create" />
-</form>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+                <div class="my-2">
+                    <label for="{{ form.title.id_for_label }}" class="form-label"> {{ form.title.label}} </label>
+                    <input type="text" name="{{ form.title.html_name }}" id="{{ form.title.id_for_label }}" class="form-control" />
+                </div>
+                <div class="my-2">
+                    <label for="{{ form.content.id_for_label }}" class="form-label"> {{ form.content.label}} </label>
+                    <input type="text" name="{{ form.content.html_name }}" id="{{ form.content.id_for_label }}" class="form-control" />
+                </div>
+                <div class="my-2">
+                    <label for="{{ form.author.id_for_label }}" class="form-label">{{ form.author.label }}</label>
+                    <select class="form-select " name="{{ form.author.html_name }}" required="" id="id_author">
+                      <option value="" selected="">---------</option>
+                      <option value="1">admin</option>
+                    </select>
+                </div>
+                <div class="my-3">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+         </form>
+    </div>
 
 {%endblock page_content %}
 
